@@ -1,0 +1,4 @@
+This program makes two GET requests to an HackerRank API for a given football team name. It then makes as extra requests to total up the number of goals the team scored when they are either listed as 'team1' or 'team2'. 
+The program then returns the total number of goals and writes the result of the data from the original responses to two JSON files in the local folder.
+
+Uses: Javascript promises, async/await.
