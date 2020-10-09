@@ -18,8 +18,8 @@ const getPages =  async (team, year) => {
 }
 
 const getGoals = async(result) => {
-    mainResponse = result.mainResponse;
-    secondMainResponse = result.secondMainResponse;
+    
+    const {mainResponse, secondMainResponse} = result;
     //console.log(mainResponse);
     //console.log(secondMainResponse);
 
@@ -63,10 +63,8 @@ const getGoals = async(result) => {
 }
 
 const createFinalResult = (result) => {
-    let firstResponse = result.firstResponse;
-    let secondResponse = result.secondResponse;
-    let numberOfGoals = result.numberOfGoals;
-
+    const {firstResponse, secondResponse, numberOfGoals} = result;
+    
     let r1 = JSON.stringify(firstResponse);
     let r2 = JSON.stringify(secondResponse);
 
@@ -84,7 +82,6 @@ const createFinalResult = (result) => {
 }
 
 const writeToFile = async (result) => {
-    //console.log(result);
     console.log('Writing to file one...')
     await fs.writeFile('result1.json', result.r1, (err) => err);
     console.log('Writing to file two...')
