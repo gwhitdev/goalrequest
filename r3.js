@@ -38,7 +38,8 @@ const getGoals = async(result) => {
 
     let firstResponse = {};
     for (let i = 0 ; i < firstNumberOfPages; i++) {
-        let response = await axios.get(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&team1=${team}&page=${i}`)
+        let response = await axios.get(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League
+                                        &year=${year}&team1=${team}&page=${i}`)
         for (let i = 0; i < teamOneMatches; i++) {
             numberOfGoals += Number(response.data.data[i].team1goals);
             //console.log('Iterate team1 number of goals: ', numberOfGoals);
@@ -48,7 +49,8 @@ const getGoals = async(result) => {
     let secondResponse = {};
     console.log('Getting team 2 goals...')
     for (let i = 0 ; i < secondNumberOfPages; i++) {
-        let response = await axios.get(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&team2=${team}&page=${i}`)
+        let response = await axios.get(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League
+                                        &year=${year}&team2=${team}&page=${i}`)
         
         for (let i = 0; i < teamTwoMatches; i++) {
             numberOfGoals += Number(response.data.data[i].team2goals);
@@ -83,8 +85,6 @@ const createFinalResult = (result) => {
 
 const writeToFile = async (result) => {
     //console.log(result);
-    
-    
     console.log('Writing to file one...')
     await fs.writeFile('result1.json', result.r1, (err) => err);
     console.log('Writing to file two...')
